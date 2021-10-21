@@ -1,3 +1,12 @@
 // PALETTE
 $primary-color: #ee171f;
 $secondary-color: #fff;
+// FONTS
+@font-face {
+    font-family: "built_bd";
+    src: url("../fonts/built-bd/built_titling_bd-webfont.woff2") format("woff2"),
+         url("../fonts/built-bd/built_titling_bd-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+$heading-font: "built_bd";
