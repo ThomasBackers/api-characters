@@ -2,6 +2,7 @@
 $primary-color: #ee171f;
 $secondary-color: #fff;
 // FONTS
+// ---imports---
 @font-face {
     font-family: "built_bd";
     src: url("../fonts/built-bd/built_titling_bd-webfont.woff2") format("woff2"),
@@ -9,4 +10,6 @@ $secondary-color: #fff;
     font-weight: normal;
     font-style: normal;
 }
+// ---var---
 $heading-font: "built_bd";
+$main-font: 'Roboto', sans-serif;
