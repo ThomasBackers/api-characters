@@ -1,6 +1,5 @@
-body {
-    background-color: pink;
-    h1 {
-        color: white;
-    }
-}
+@import "abstracts/variables";
+@import "base/reset";
+@import "base/base";
+@import "layout/header";
+@import "pages/index";
