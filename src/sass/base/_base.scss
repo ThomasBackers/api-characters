@@ -1,7 +1,7 @@
 body {
-    background-color: $primary-color;
-    h1 {
-        color: $secondary-color;
-        font-family: $heading-font;
+    background-color: $secondary-color;
+    button {
+        background-color: transparent;
+        border: none;
     }
 }
