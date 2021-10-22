@@ -1,4 +1,4 @@
-import 'regenerator-runtime/runtime'
+import "regenerator-runtime/runtime"
 
 const apiUrl = "https://character-database.becode.xyz/"
 
@@ -25,5 +25,11 @@ const apiPost = async (url, data) => {
     return result
 }
 
-const abu = apiGet(`${apiUrl}characters/40631458-60dd-4e8b-99cc-40c5c80fe01b`)
-console.log(abu.name)
+/**
+ * @param {String} url - link to data 
+ */
+const apiDel = async url => {
+    const result = await fetch(url, {
+        method: 'DELETE'
+    })
+}
