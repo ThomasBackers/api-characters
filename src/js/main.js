@@ -1,7 +1,18 @@
+// IMPORTS
 import "regenerator-runtime/runtime"
 
 // VARIABLES
+// --- links ---
 const apiUrl = "https://character-database.becode.xyz/characters/"
+// --- pages content ---
+const homeContent = document.querySelector(".--home")
+const editContent = document.querySelector(".--edit")
+// --- buttons ---
+const addButton = document.querySelector(".top-bar__add-btn")
+const searchButton = document.querySelector(".top-bar__search__btn")
+// --- others ---
+const searchInput = document.querySelector(".top-bar__search__input")
+const cards = document.querySelectorAll(".characters__card")
 
 // FUNCTIONS
 /**
@@ -23,32 +34,48 @@ const apiGet = async (url, id) => {
  */
 const apiPost = async (url, data) => {
     try {
-        const result = await fetch(url, {
-            method: 'POST',
+        const response = await fetch(url, {
+            method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(data)
         })
-        console.log(result)
+        console.log(response)
     } catch(error) {
         console.log(error)
     }
 }
 
 /**
- * @param {String} url - link to data
- * @param {String} id - data id
+ * @param {String} url - link to API
+ * @param {String} id - data to delete ID
  */
 const apiDel = async (url, id) => {
     try {
-        const result = await fetch(url + id, {
-            method: 'DELETE'
+        const response = await fetch(url + id, {
+            method: "DELETE"
         })
-        console.log(result)
+        console.log(response)
     } catch(error) {
         console.log(error)
     }
 }
 
 // EXECUTION
+addButton.addEventListener("click", () => {
+    homeContent.style.display = "none"
+    editContent.style.display = "initial"
+})
+
+searchButton.addEventListener("click", () => {
+    if (homeContent.style.display !== "none") {
+        const purpose = searchInput.value
+        cards.forEach(card => {
+            if (card.innerHTML.includes) {}
+        })
+    }
+})
+
+console.log(cards.textContent)
+
