@@ -2,10 +2,19 @@ html {
     font-size: 16px;
     body {
         background-color: $secondary-color;
+        font-family: $main-font;
         button {
             background-color: transparent;
             border: none;
             padding: 0;
+            cursor: pointer;
         }
     }
+
+    .container{
+        width: 90%;
+        margin: 0 auto;
+        max-width: 1440 px;
+}
+
 }
