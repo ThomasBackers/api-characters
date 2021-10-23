@@ -13,8 +13,10 @@ const searchButton = document.querySelector(".top-bar__search__btn")
 // --- others ---
 const searchInput = document.querySelector(".top-bar__search__input")
 const cards = document.querySelectorAll(".characters__card")
+const topBar = document.querySelector(".top-bar")
 
 // FUNCTIONS
+// --- api handling ---
 /**
  * @param {String} url - link to API
  * @param {String} id - object to get ID
@@ -62,20 +64,47 @@ const apiDel = async (url, id) => {
     }
 }
 
+// --- eventListeners callbacks ---
+const createExitSearch = () => {
+    const exitSearch = document.createElement("button")
+    exitSearch.innerText = "← RETURN"
+    exitSearch.style.padding = "0.5rem 1rem"
+    exitSearch.style.color = "#fff"
+    exitSearch.style.backgroundColor = "#ee171f"
+    exitSearch.style.position = "absolute"
+    exitSearch.style.left = "46.5%"
+    exitSearch.style.top = "7rem"
+    exitSearch.style.cursor = "pointer"
+    exitSearch.style.display = "none"
+    topBar.appendChild(exitSearch)
+    return exitSearch
+}
+
+const exitSearch = createExitSearch()
+
+const searchButtonEffect = () => {
+    if (searchInput.value !== "") {
+        if (homeContent.style.display === "none") {
+            editContent.style.display = "none"
+            homeContent.style.display = "initial"
+        }
+        const purpose = searchInput.value.toLowerCase()
+        cards.forEach(card => {
+            if (!card.innerText.toLowerCase().includes(purpose)) card.style.display = "none"
+            else card.style.display = "initial"
+        })
+        exitSearch.style.display = "initial"
+    }
+}
+
 // EXECUTION
 addButton.addEventListener("click", () => {
     homeContent.style.display = "none"
     editContent.style.display = "initial"
 })
 
-searchButton.addEventListener("click", () => {
-    if (homeContent.style.display !== "none") {
-        const purpose = searchInput.value
-        cards.forEach(card => {
-            if (card.innerHTML.includes) {}
-        })
-    }
+searchButton.addEventListener("click", searchButtonEffect)
+
+searchInput.addEventListener("keydown", event => {
+    if (event.key === "Enter") searchButtonEffect()
 })
-
-console.log(cards.textContent)
-
