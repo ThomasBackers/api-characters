@@ -107,8 +107,9 @@ searchButton.addEventListener("click", searchButtonEffect)
 searchInput.addEventListener("keydown", event => {
     if (event.key === "Enter") searchButtonEffect()
 })
-
+/*
 apiPut(apiUrl, initializerId, {
     name: "ft_initializer",
     map: []
 })
+*/
