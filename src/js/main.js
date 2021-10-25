@@ -143,9 +143,14 @@ cards.forEach(card => {
     card.addEventListener("mouseover", () => {
         const cardLine = card.querySelector(".characters__card__line")
         cardLine.style.animation = "smooth-line 0.2s ease forwards"
+        const cardImg = card.querySelector("img")
+        cardImg.style.animation = "zoom-img 0.2s ease forwards"
     })
     card.addEventListener("mouseout", () => {
         const cardLine = card.querySelector(".characters__card__line")
         cardLine.style.animation = "undo-smooth-line 0.2s ease forwards"
+        const cardImg = card.querySelector("img")
+        cardImg.style.animation = "undo-zoom-img 0.2s ease forwards"
     })
 })
+

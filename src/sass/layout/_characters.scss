@@ -16,6 +16,33 @@
     }
 }
 
+@keyframes zoom-img {
+    0% {
+        height: 100%;
+        width: 100%;
+    }
+
+    100%{
+        height: 120%;
+        width: 120%;
+        transform: translate(-10%, -10%);
+    }
+    
+}
+
+@keyframes undo-zoom-img {
+    0% {
+        height: 120%;
+        width: 120%;
+        transform: translate(-10%, -10%);
+    }
+
+    100%{
+        height: 100%;
+        width: 100%;
+    }
+}
+
 .characters {
     .container {
         display: flex;
@@ -50,6 +77,7 @@
 
         &__visuel{
                 height: 13.5rem;
+                overflow: hidden;
             img {
                 width: 100%;
                 height: 100%;
