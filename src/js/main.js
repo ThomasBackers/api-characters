@@ -145,6 +145,21 @@ addButton.addEventListener("click", () => {
     //editContent.style.display = "initial"
 })
 
+document.querySelector(".top-bar__burger-menu").addEventListener("click", ()=>{
+    const sideMenu = document.querySelector(".top-bar__side-menu")
+    sideMenu.style.animation = "show-side-menu 0.3s ease-out forwards"
+    const sideVoid = document.querySelector(".top-bar__side-menu__void")
+    sideVoid.style.animation = "become-opaque 0.125s ease-out 0.3s forwards"
+})
+
+document.querySelector(".top-bar__side-menu__void").addEventListener("click", ()=>{
+    const sideMenu = document.querySelector(".top-bar__side-menu")
+    sideMenu.style.animation = "hide-side-menu 0.3s ease-out forwards"
+    const sideVoid = document.querySelector(".top-bar__side-menu__void")
+    sideVoid.style.animation = "become-transparent 0.01s ease-out forwards"
+})
+
+
  /*
  function getDataUrl(img) {
    // Create canvas
