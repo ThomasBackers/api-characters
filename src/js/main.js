@@ -120,7 +120,7 @@ const main = async () => {
     const searchButtonEffect = () => {
         if (searchInput.value !== "") {
             if (homeContent.style.display === "none") {
-                //editContent.style.display = "none"
+                editContent.style.display = "none"
                 //profileContent.style.display = "none"
                 homeContent.style.display = "initial"
             }
@@ -136,7 +136,7 @@ const main = async () => {
     document.querySelector(".top-bar__side-menu__list__element__search-btn").addEventListener("click", ()=>{
         if (document.querySelector(".top-bar__side-menu__list__element__input").value !== "") {
             if (homeContent.style.display === "none") {
-                //editContent.style.display = "none"
+                editContent.style.display = "none"
                 //profileContent.style.display = "none"
                 homeContent.style.display = "initial"
             }
@@ -156,12 +156,12 @@ const main = async () => {
 // --- event listeners ---
 addButton.addEventListener("click", () => {
     homeContent.style.display = "none"
-    //editContent.style.display = "initial"
+    editContent.style.display = "initial"
 })
 
 document.querySelector(".top-bar__side-menu__list__element__add-btn").addEventListener("click", () => {
     homeContent.style.display = "none"
-    //editContent.style.display = "initial"
+    editContent.style.display = "initial"
 })
 
 document.querySelector(".top-bar__burger-menu").addEventListener("click", ()=>{

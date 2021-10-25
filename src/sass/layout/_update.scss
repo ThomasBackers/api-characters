@@ -1,0 +1,8 @@
+.update {
+    display: none;
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+    }
+}
