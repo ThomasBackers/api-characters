@@ -4,7 +4,7 @@ import "regenerator-runtime/runtime"
 // VARIABLES
 // --- links ---
 const apiUrl = "https://character-database.becode.xyz/characters/"
-const initializerId = "07380f8d-d601-42a0-acf8-12285b25210d"
+const initId = "07380f8d-d601-42a0-acf8-12285b25210d"
 // --- pages content ---
 const homeContent = document.querySelector(".--home")
 const editContent = document.querySelector(".--edit")
@@ -107,9 +107,41 @@ searchButton.addEventListener("click", searchButtonEffect)
 searchInput.addEventListener("keydown", event => {
     if (event.key === "Enter") searchButtonEffect()
 })
-/*
-apiPut(apiUrl, initializerId, {
-    name: "ft_initializer",
-    map: []
+
+ /*
+ function getDataUrl(img) {
+   // Create canvas
+   const canvas = document.createElement('canvas');
+   const ctx = canvas.getContext('2d');
+   // Set width and height
+   canvas.width = img.width;
+   canvas.height = img.height;
+   // Draw the image
+   ctx.drawImage(img, 0, 0);
+   return canvas.toDataURL('image/jpeg');
+}
+// Select the image
+const img = document.querySelector('#my-image');
+img.addEventListener('load', function (event) {
+   const dataUrl = getDataUrl(event.currentTarget);
+   console.log(dataUrl);
+});
+ */
+const imgToBase64 = img => {
+    // create canvas
+    const canvas = document.createElement("canvas")
+    const context = canvas.getContext("2d")
+    // set canvas width and height
+    canvas.width = img.width
+    canvas.height = img.height
+    // draw the img
+    context.drawImage(img, 0, 0)
+    return canvas.toDataURL("image/jpeg")
+}
+
+cards.forEach(card => {
+    card.addEventListener("mouseover", () => {
+        const cardLine = card.querySelector(".characters__card__line")
+        cardLine.style.height = "16.06rem"
+    })
 })
-*/
