@@ -4,7 +4,6 @@ import "regenerator-runtime/runtime"
 // VARIABLES
 // --- links ---
 const apiUrl = "https://character-database.becode.xyz/characters/"
-const initId = "07380f8d-d601-42a0-acf8-12285b25210d"
 // --- pages content ---
 const homeContent = document.querySelector(".--home")
 const editContent = document.querySelector(".--edit")
@@ -117,7 +116,7 @@ const main = async () => {
             cardImg.style.animation = "undo-zoom-img 0.2s ease forwards"
         })
     })
-
+    // set search bar
     const searchButtonEffect = () => {
         if (searchInput.value !== "") {
             if (homeContent.style.display === "none") {

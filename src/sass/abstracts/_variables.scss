@@ -1,7 +1,8 @@
 // PALETTE
 $primary-color: #ee171f;
 $secondary-color: #fff;
-$tertiary-color: lighten(#000, 10%);
+$quaternary-color: #000;
+$tertiary-color: lighten($quaternary-color, 10%);
 // FONTS
 // ---imports---
 @font-face {
