@@ -77,5 +77,4 @@ searchButton.addEventListener("click", () => {
     }
 })
 
-console.log(cards.textContent)
-
+console.log(cards.forEach(card => console.log(card.innerText)))
