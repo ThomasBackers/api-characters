@@ -129,5 +129,14 @@
                 }
             }
         }
+        &::after{
+            position: absolute;
+            content: "█";
+            color: $secondary-color;
+            font-size: 30px;
+            transform: rotate(45deg);
+            bottom: -.5em;
+            right: -0.5em;
+        }
 }
 }
