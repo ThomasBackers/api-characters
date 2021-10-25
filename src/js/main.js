@@ -159,6 +159,11 @@ addButton.addEventListener("click", () => {
     //editContent.style.display = "initial"
 })
 
+document.querySelector(".top-bar__side-menu__list__element__add-btn").addEventListener("click", () => {
+    homeContent.style.display = "none"
+    //editContent.style.display = "initial"
+})
+
 document.querySelector(".top-bar__burger-menu").addEventListener("click", ()=>{
     const sideMenu = document.querySelector(".top-bar__side-menu")
     sideMenu.style.animation = "show-side-menu 0.3s ease-out forwards"
