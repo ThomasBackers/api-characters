@@ -3,13 +3,13 @@
         height: 0.2em;
     }
     100% {
-        height: 16.06rem;
+        height: 12.4rem;
     }
 }
 
 @keyframes undo-smooth-line {
     0% {
-        height: 16.06rem;
+        height: 12.4rem;
     }
     100% {
         height: 0.2em;
@@ -88,6 +88,7 @@
             margin: 1em;
             z-index: 1;
             position: relative;
+            height: 9.7rem;
       
             h2 {
                 color: $secondary-color;
@@ -100,7 +101,7 @@
             p {
                 color: darken($secondary-color, 20%);
                 font-size: 0.85em;
-                text-align: justify;
+                text-align: center;
                 line-height: 1.25em;
                 margin: 1em 0.3em;
             }

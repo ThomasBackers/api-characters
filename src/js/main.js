@@ -12,9 +12,10 @@ const profileContent = document.querySelector(".--profile")
 // --- buttons ---
 const addButton = document.querySelector(".top-bar__add-btn")
 const searchButton = document.querySelector(".top-bar__search__btn")
+// --- templates ---
+const cardTemplate = document.querySelector(".card-template")
 // --- others ---
 const searchInput = document.querySelector(".top-bar__search__input")
-const cards = document.querySelectorAll(".characters__card")
 
 // FUNCTIONS
 // --- api handling ---
@@ -80,6 +81,47 @@ const apiDel = async (url, id) => {
     }
 }
 
+/**
+ * 
+ * @returns {Object} - returns the freshly created cards
+ */
+const getAllCharacters = async () => {
+    const characters = await apiGet(apiUrl, "")
+    characters.forEach(character => {
+        const currentArticle = document.importNode(cardTemplate.content, true)
+        // set <img>
+        const img = currentArticle.querySelector("img")
+        img.setAttribute("src", "data:image/jpeg;base64," + character.image)
+        img.setAttribute("alt", character.name)
+        // set name
+        const name = currentArticle.querySelector(".characters__card__text__name")
+        name.innerText = character.name
+        // set description
+        const shortDescription = currentArticle.querySelector(".characters__card__text__description")
+        shortDescription.innerText = character.shortDescription
+        // append currentArticle to section
+        const container = homeContent.querySelector(".container")
+        //
+        //
+        container.appendChild(currentArticle)
+    })
+    const cards = document.querySelectorAll(".characters__card")
+    cards.forEach(card => {
+        card.addEventListener("mouseover", () => {
+            const cardLine = card.querySelector(".characters__card__line")
+            cardLine.style.animation = "smooth-line 0.2s ease forwards"
+            const cardImg = card.querySelector("img")
+            cardImg.style.animation = "zoom-img 0.2s ease forwards"
+        })
+        card.addEventListener("mouseout", () => {
+            const cardLine = card.querySelector(".characters__card__line")
+            cardLine.style.animation = "undo-smooth-line 0.2s ease forwards"
+            const cardImg = card.querySelector("img")
+            cardImg.style.animation = "undo-zoom-img 0.2s ease forwards"
+        })
+    })
+}
+
 // --- eventListeners callbacks ---
 const searchButtonEffect = () => {
     if (searchInput.value !== "") {
@@ -139,18 +181,4 @@ const imgToBase64 = img => {
     return canvas.toDataURL("image/jpeg")
 }
 
-cards.forEach(card => {
-    card.addEventListener("mouseover", () => {
-        const cardLine = card.querySelector(".characters__card__line")
-        cardLine.style.animation = "smooth-line 0.2s ease forwards"
-        const cardImg = card.querySelector("img")
-        cardImg.style.animation = "zoom-img 0.2s ease forwards"
-    })
-    card.addEventListener("mouseout", () => {
-        const cardLine = card.querySelector(".characters__card__line")
-        cardLine.style.animation = "undo-smooth-line 0.2s ease forwards"
-        const cardImg = card.querySelector("img")
-        cardImg.style.animation = "undo-zoom-img 0.2s ease forwards"
-    })
-})
-
+const cards = getAllCharacters()
