@@ -81,11 +81,7 @@ const apiDel = async (url, id) => {
     }
 }
 
-/**
- * 
- * @returns {Object} - returns the freshly created cards
- */
-const getAllCharacters = async () => {
+const main = async () => {
     const characters = await apiGet(apiUrl, "")
     characters.forEach(character => {
         const currentArticle = document.importNode(cardTemplate.content, true)
@@ -105,6 +101,7 @@ const getAllCharacters = async () => {
         //
         container.appendChild(currentArticle)
     })
+
     const cards = document.querySelectorAll(".characters__card")
     cards.forEach(card => {
         card.addEventListener("mouseover", () => {
@@ -120,34 +117,33 @@ const getAllCharacters = async () => {
             cardImg.style.animation = "undo-zoom-img 0.2s ease forwards"
         })
     })
-}
 
-// --- eventListeners callbacks ---
-const searchButtonEffect = () => {
-    if (searchInput.value !== "") {
-        if (homeContent.style.display === "none") {
-            //editContent.style.display = "none"
-            //profileContent.style.display = "none"
-            homeContent.style.display = "initial"
+    const searchButtonEffect = () => {
+        if (searchInput.value !== "") {
+            if (homeContent.style.display === "none") {
+                //editContent.style.display = "none"
+                //profileContent.style.display = "none"
+                homeContent.style.display = "initial"
+            }
+            const purpose = searchInput.value.toLowerCase()
+            cards.forEach(card => {
+                if (!card.innerText.toLowerCase().includes(purpose)) card.style.display = "none"
+                else card.style.display = "initial"
+            })
         }
-        const purpose = searchInput.value.toLowerCase()
-        cards.forEach(card => {
-            if (!card.innerText.toLowerCase().includes(purpose)) card.style.display = "none"
-            else card.style.display = "initial"
-        })
     }
+
+    searchButton.addEventListener("click", searchButtonEffect)
+
+    searchInput.addEventListener("keydown", event => {
+        if (event.key === "Enter") searchButtonEffect()
+    })
 }
 
-// EXECUTION
+// --- event listeners ---
 addButton.addEventListener("click", () => {
     homeContent.style.display = "none"
     //editContent.style.display = "initial"
-})
-
-searchButton.addEventListener("click", searchButtonEffect)
-
-searchInput.addEventListener("keydown", event => {
-    if (event.key === "Enter") searchButtonEffect()
 })
 
  /*
@@ -181,4 +177,4 @@ const imgToBase64 = img => {
     return canvas.toDataURL("image/jpeg")
 }
 
-const cards = getAllCharacters()
+main()
