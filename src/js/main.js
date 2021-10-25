@@ -142,6 +142,10 @@ const imgToBase64 = img => {
 cards.forEach(card => {
     card.addEventListener("mouseover", () => {
         const cardLine = card.querySelector(".characters__card__line")
-        cardLine.style.height = "16.06rem"
+        cardLine.style.animation = "smooth-line 0.2s ease forwards"
+    })
+    card.addEventListener("mouseout", () => {
+        const cardLine = card.querySelector(".characters__card__line")
+        cardLine.style.animation = "undo-smooth-line 0.2s ease forwards"
     })
 })
