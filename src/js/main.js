@@ -133,6 +133,20 @@ const main = async () => {
     }
 
     searchButton.addEventListener("click", searchButtonEffect)
+    document.querySelector(".top-bar__side-menu__list__element__search-btn").addEventListener("click", ()=>{
+        if (document.querySelector(".top-bar__side-menu__list__element__input").value !== "") {
+            if (homeContent.style.display === "none") {
+                //editContent.style.display = "none"
+                //profileContent.style.display = "none"
+                homeContent.style.display = "initial"
+            }
+            const purpose = document.querySelector(".top-bar__side-menu__list__element__input").value.toLowerCase()
+            cards.forEach(card => {
+                if (!card.innerText.toLowerCase().includes(purpose)) card.style.display = "none"
+                else card.style.display = "initial"
+            })
+        }
+    })
 
     searchInput.addEventListener("keydown", event => {
         if (event.key === "Enter") searchButtonEffect()

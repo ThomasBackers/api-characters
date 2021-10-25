@@ -81,6 +81,7 @@
         z-index: 3;
         display: flex;
         transform: translateX(-100%);
+        pointer-events: all;
         &__list {
             background-color: #000;
             min-width: 200px;
