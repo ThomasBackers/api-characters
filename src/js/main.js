@@ -102,9 +102,6 @@ addButton.addEventListener("click", () => {
     //editContent.style.display = "initial"
 })
 
-<<<<<<< HEAD
-console.log(cards.forEach(card => console.log(card.innerText)))
-=======
 searchButton.addEventListener("click", searchButtonEffect)
 
 searchInput.addEventListener("keydown", event => {
@@ -116,4 +113,3 @@ apiPut(apiUrl, initializerId, {
     map: []
 })
 */
->>>>>>> aca85b5140c6d16d1def604a8a13b87f11ab45eb
