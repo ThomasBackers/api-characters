@@ -1,3 +1,27 @@
 .--profile{
     display: none;
 }
+
+.profiles {
+   
+&__profile {
+    display: flex;
+    padding: 2.5rem 0;
+    &__visuel {
+        min-width: 300px;
+        min-height: 300px;
+        img{
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+
+&__text{
+    &__name{
+        font-family: $heading-font;
+        font-size: 2.7rem;
+    }
+}
+}
+}
