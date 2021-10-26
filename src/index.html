@@ -66,6 +66,7 @@
         <section class="update --edit">
             <div class="container">
                 <form class="update__form">
+                    <div class="container">
                     <figure class="update__form__figure">
                         <p>PREVIEW</p>
                         <img src="" alt="">
@@ -73,14 +74,15 @@
                     <input type="file" id="image" name="image" accept="image/*">
                     <label for="name">name</label>
                     <input type="text" id="name" name="name" placeholder="write the name of your character">
-                    <label for="short-description">name</label>
-                    <input type="text" id="short-description" name="short-description" placeholder="write a short description about your character">
-                    <label for="description">name</label>
-                    <input type="text" id="description" name="description" placeholder="write a description about your character">
+                    <label for="short-description">Short Description</label>
+                    <textarea  id="short-description" name="short-description" placeholder="write a short description about your character"></textarea>
+                    <label for="description">Long Description</label>
+                    <textarea  id="description" name="description" placeholder="write a description about your character"></textarea>
                     <div class="update__form__buttons">
                     <input type="submit" value="SAVE CHANGES">
                     <input type="submit" value="DELETE CHARACTER">
                     </div>
+                </div>
                 </form>
             </div>
         </section>
