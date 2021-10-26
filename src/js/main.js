@@ -94,6 +94,9 @@ const main = async () => {
         // set description
         const shortDescription = currentArticle.querySelector(".characters__card__text__description")
         shortDescription.innerText = character.shortDescription
+        // store character id
+        const charId = currentArticle.querySelector(".characters__card__char-id")
+        charId.innerText = character.id
         // append currentArticle to section
         const container = homeContent.querySelector(".container")
         //
@@ -133,7 +136,6 @@ const main = async () => {
     }
 
     searchButton.addEventListener("click", searchButtonEffect)
-
     document.querySelector(".top-bar__side-menu__list__element__search-btn").addEventListener("click", ()=>{
         if (document.querySelector(".top-bar__side-menu__list__element__input").value !== "") {
             if (homeContent.style.display === "none") {
@@ -179,63 +181,47 @@ document.querySelector(".top-bar__side-menu__void").addEventListener("click", ()
     sideVoid.style.animation = "become-transparent 0.01s ease-out forwards"
 })
 
-
- /*
- function getDataUrl(img) {
-   // Create canvas
-   const canvas = document.createElement('canvas');
-   const ctx = canvas.getContext('2d');
-   // Set width and height
-   canvas.width = img.width;
-   canvas.height = img.height;
-   // Draw the image
-   ctx.drawImage(img, 0, 0);
-   return canvas.toDataURL('image/jpeg');
-}
-// Select the image
-const img = document.querySelector('#my-image');
-img.addEventListener('load', function (event) {
-   const dataUrl = getDataUrl(event.currentTarget);
-   console.log(dataUrl);
-});
- */
-const imgToBase64 = img => {
-    // create canvas
-    const canvas = document.createElement("canvas")
-    const context = canvas.getContext("2d")
-    // set canvas width and height
-    canvas.width = img.width
-    canvas.height = img.height
-    // draw the img
-    context.drawImage(img, 0, 0)
-    return canvas.toDataURL("image/jpeg")
-}
-
 main()
 
-const editButtons = document.querySelectorAll("input[type=\"submit\"]")
+
+// upoad image button
+const uploadButton = document.querySelector("input[type=\"file\"]")
+const previewFigure = document.querySelector(".update__form__figure")
+
+uploadButton.addEventListener("change", () => {
+    const reader = new FileReader()
+    reader.onload = () => {
+        const image = new Image()
+        image.src = reader.result
+        previewFigure.appendChild(image)
+    }
+    reader.readAsDataURL(uploadButton.files[0])
+}, false)
+
+
+// edit buttons
+const saveButton = document.querySelector(".update__form__buttons__save")
+const deleteButton = document.querySelector(".update__form__buttons__delete")
 
 // save changes button
-editButtons[0].addEventListener("click", () => {
-    const image = document.querySelector("input[type=\"file\"]").value // wrong!!!!!
+saveButton.addEventListener("click", () => {
+    const image = previewFigure.querySelector("img").src
     const name = document.querySelector("input[name=\"name\"]").value
     const shortDescription = document.querySelector("textarea[name=\"short-description\"]").value
     const description = document.querySelector("textarea[name=\"description\"]").value
 
     const objectToPost = {
         name: name,
-        image: image,
+        image: image.split(",")[1],
         description: description,
         shortDescription: shortDescription,
     }
-    
+
     apiPost(apiUrl, objectToPost)
 })
 
 // delete button
-editButtons[1].addEventListener("click", () => {
+deleteButton.addEventListener("click", () => {
+    //if character.id
     apiDel(apiUrl, id)
-})
-EventListener("keydown", event => {
-        if (event.key === "Enter") searchButtonEffect()
 })
