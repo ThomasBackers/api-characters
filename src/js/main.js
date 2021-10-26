@@ -124,19 +124,24 @@ const main = async () => {
     })
 
     //Read profile button
-    let characterID
     const readProfile = document.querySelectorAll(".characters__card__text__button")
     readProfile.forEach(profile => {
         profile.addEventListener("click", (event) => {
+
+            const shortDescription = event.target.parentNode.previousElementSibling.innerText
+            const characterID = event.target.parentNode.nextElementSibling.innerText
+            const name = event.target.parentNode.previousElementSibling.previousElementSibling.innerText
+            const longDescription = event.target.parentNode.nextElementSibling.nextElementSibling.innerHTML
+            const image = event.target.parentNode.parentNode.previousElementSibling.previousElementSibling.lastElementChild
+
+            profileContent.querySelector(".profiles__profile__visuel").appendChild(image)
+            profileContent.querySelector(".profiles__profile__text__name").innerText = name
+            profileContent.querySelector(".profiles__profile__text__short-description").innerText = shortDescription
+            profileContent.querySelector(".profiles__profile__long-description").innerHTML = longDescription
+            profileContent.querySelector(".profiles__profile__char-id").innerText = characterID
+
             homeContent.style.display = "none"
             profileContent.style.display = "initial"
-            const shortDescription = event.target.previousElementSibling.innerText
-            characterID = event.target.nextElementSibling.innerText
-            const name = event.target.previousElementSibling.previousElementSibling.innerText
-            const longDescription = event.target.nextElementSibling.nextElementSibling.innerHTML
-            const image = event.target.parentNode.previousElementSibling.previousElementSibling.lastElementChild
-
-            
         })
     })
 
