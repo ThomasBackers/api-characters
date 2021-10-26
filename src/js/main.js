@@ -238,3 +238,4 @@ editButtons[1].addEventListener("click", () => {
 })
 EventListener("keydown", event => {
         if (event.key === "Enter") searchButtonEffect()
+})
