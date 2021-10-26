@@ -216,8 +216,12 @@ saveButton.addEventListener("click", () => {
         description: description,
         shortDescription: shortDescription,
     }
-
-    apiPost(apiUrl, objectToPost)
+    if (!name || !image || !shortDescription || !description) {
+    }
+    else {
+        apiPost(apiUrl, objectToPost)
+        Location.reload()
+    }
 })
 
 // delete button
