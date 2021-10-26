@@ -211,3 +211,27 @@ const imgToBase64 = img => {
 }
 
 main()
+
+const editButtons = document.querySelectorAll("input[type=\"submit\"]")
+
+// save changes button
+editButtons[0].addEventListener("click", () => {
+    const image = document.querySelector("input[type=\"file\"]").value // wrong!!!!!
+    const name = document.querySelector("input[name=\"name\"]").value
+    const shortDescription = document.querySelector("textarea[name=\"short-description\"]").value
+    const description = document.querySelector("textarea[name=\"description\"]").value
+
+    const objectToPost = {
+        name: name,
+        image: image,
+        description: description,
+        shortDescription: shortDescription,
+    }
+    
+    apiPost(apiUrl, objectToPost)
+})
+
+// delete button
+editButtons[1].addEventListener("click", () => {
+    apiDel(apiUrl, id)
+})
