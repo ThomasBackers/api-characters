@@ -133,6 +133,7 @@ const main = async () => {
     }
 
     searchButton.addEventListener("click", searchButtonEffect)
+
     document.querySelector(".top-bar__side-menu__list__element__search-btn").addEventListener("click", ()=>{
         if (document.querySelector(".top-bar__side-menu__list__element__input").value !== "") {
             if (homeContent.style.display === "none") {
@@ -235,3 +236,5 @@ editButtons[0].addEventListener("click", () => {
 editButtons[1].addEventListener("click", () => {
     apiDel(apiUrl, id)
 })
+EventListener("keydown", event => {
+        if (event.key === "Enter") searchButtonEffect()
