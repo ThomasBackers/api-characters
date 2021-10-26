@@ -97,6 +97,9 @@ const main = async () => {
         // store character id
         const charId = currentArticle.querySelector(".characters__card__char-id")
         charId.innerText = character.id
+        //store long description
+        const longDescription = currentArticle.querySelector(".characters__card__long-description")
+        longDescription.innerHTML = character.description
         // append currentArticle to section
         const container = homeContent.querySelector(".container")
         //
@@ -119,6 +122,24 @@ const main = async () => {
             cardImg.style.animation = "undo-zoom-img 0.2s ease forwards"
         })
     })
+
+    //Read profile button
+    let characterID
+    const readProfile = document.querySelectorAll(".characters__card__text__button")
+    readProfile.forEach(profile => {
+        profile.addEventListener("click", (event) => {
+            homeContent.style.display = "none"
+            profileContent.style.display = "initial"
+            const shortDescription = event.target.previousElementSibling.innerText
+            characterID = event.target.nextElementSibling.innerText
+            const name = event.target.previousElementSibling.previousElementSibling.innerText
+            const longDescription = event.target.nextElementSibling.nextElementSibling.innerHTML
+            const image = event.target.parentNode.previousElementSibling.previousElementSibling.lastElementChild
+
+            
+        })
+    })
+
     // set search bar
     const searchButtonEffect = () => {
         if (searchInput.value !== "") {
@@ -204,7 +225,7 @@ const saveButton = document.querySelector(".update__form__buttons__save")
 const deleteButton = document.querySelector(".update__form__buttons__delete")
 
 // save changes button
-saveButton.addEventListener("click", () => {
+saveButton.addEventListener("click", async() => {
     const image = previewFigure.querySelector("img").src
     const name = document.querySelector("input[name=\"name\"]").value
     const shortDescription = document.querySelector("textarea[name=\"short-description\"]").value
@@ -219,7 +240,8 @@ saveButton.addEventListener("click", () => {
     if (!name || !image || !shortDescription || !description) {
     }
     else {
-        apiPost(apiUrl, objectToPost)
+        await apiPost(apiUrl, objectToPost)
+        location.reload()
     }
 })
 
