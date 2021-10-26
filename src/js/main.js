@@ -220,7 +220,6 @@ saveButton.addEventListener("click", () => {
     }
     else {
         apiPost(apiUrl, objectToPost)
-        Location.reload()
     }
 })
 
