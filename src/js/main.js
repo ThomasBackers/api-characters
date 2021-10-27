@@ -153,7 +153,7 @@ const main = async () => {
         if (searchInput.value !== "") {
             if (homeContent.style.display === "none") {
                 editContent.style.display = "none"
-                //profileContent.style.display = "none"
+                profileContent.style.display = "none"
                 homeContent.style.display = "block"
             }
             const purpose = searchInput.value.toLowerCase()
@@ -188,11 +188,13 @@ const main = async () => {
 // --- event listeners ---
 addButton.addEventListener("click", () => {
     homeContent.style.display = "none"
+    profileContent = "none"
     editContent.style.display = "block"
 })
 
 document.querySelector(".top-bar__side-menu__list__element__add-btn").addEventListener("click", () => {
     homeContent.style.display = "none"
+    profileContent = "none"
     editContent.style.display = "block"
 })
 
