@@ -251,7 +251,7 @@ saveButton.addEventListener("click", async() => {
     }
     else {
         const charID = document.querySelector(".update__form__char-ID").innerText
-        if (charID.innerText === "") {
+        if (!charID) {
             await apiPost(apiUrl, objectToPost)
             location.reload()
         }
@@ -263,9 +263,16 @@ saveButton.addEventListener("click", async() => {
 })
 
 // delete button
-deleteButton.addEventListener("click", () => {
-    //if character.id
-    apiDel(apiUrl, id)
+deleteButton.addEventListener("click", async () => {
+    const charID = document.querySelector(".update__form__char-ID").innerText
+    if (charID) await apiDel(apiUrl, charID)
+    location.reload()
+})
+
+document.querySelector(".profiles__profile__text__buttons__delete").addEventListener("click", async () => {
+    const charID = document.querySelector(".profiles__profile__char-id").innerText
+    await apiDel(apiUrl, charID)
+    location.reload()
 })
 
 // update profile
@@ -286,4 +293,3 @@ saveButton_.addEventListener("click", () => {
     profileContent.style.display = "none"
     editContent.style.display = "block"
 })
-//apiDel(apiUrl, "76571c68-ac84-4648-82ed-3f1b76303403")
