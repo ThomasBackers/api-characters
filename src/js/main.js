@@ -139,7 +139,7 @@ const main = async () => {
             profileContent.querySelector(".profiles__profile__visuel").appendChild(image)
             profileContent.querySelector(".profiles__profile__text__name").innerText = name
             profileContent.querySelector(".profiles__profile__text__short-description").innerText = shortDescription
-            profileContent.querySelector(".profiles__profile__long-description").innerHTML = longDescription
+            profileContent.querySelector(".profiles__profile__text__long-description").innerHTML = longDescription
             profileContent.querySelector(".profiles__profile__char-id").innerText = characterID
 
             homeContent.style.display = "none"
