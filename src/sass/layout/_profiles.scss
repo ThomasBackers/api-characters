@@ -73,14 +73,15 @@
         letter-spacing: 0.1rem;
         margin-right: 1rem;
         p{
+            position: relative;
             &::before{
             position: absolute;
             content: "█";
             color: $secondary-color;
             font-size: 20px;
             transform: rotate(45deg);
-            top: -0.55em;
-            left: -0.30em;
+            top: -1.5rem;
+            left: -2rem;
             }
         }
         &::after{
@@ -89,8 +90,8 @@
             color: $secondary-color;
             font-size: 20px;
             transform: rotate(45deg);
-            bottom: -0.55em;
-            right: -0.30em;
+            bottom: -0.6rem;
+            right: -0.5rem;
         }
         }
 
