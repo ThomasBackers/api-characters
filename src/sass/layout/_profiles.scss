@@ -3,10 +3,18 @@
 }
 
 .profiles {
-   
+   .container{
+       width: 75%;
+   }
 &__profile {
     display: flex;
     padding: 2.5rem 0;
+    justify-content: space-between;
+
+    &__char-id{
+        display: none;
+    }
+
     &__visuel {
         min-width: 300px;
         min-height: 300px;
@@ -14,14 +22,112 @@
             height: 100%;
             width: 100%;
         }
+
     }
 
 
 &__text{
+    width: 67%;
+    padding-top: 2rem;
     &__name{
         font-family: $heading-font;
         font-size: 2.7rem;
+        position: relative;
+        &::after{
+            position: absolute;
+                content: "";
+                width: 100%;
+                height: 3px;
+                background-color: $primary-color;
+                bottom: -5px;
+                left: 0;
+                border-radius: 5px;
+        }
+    }
+
+    &__short-description{
+        padding-top: 2rem;
+        font-size: 1rem;
+        color: lighten($tertiary-color, 15%);
+        font-style: italic;
+    }
+
+    &__long-description{
+        padding: 1rem 0 2rem 0;
+        font-size: 1.1rem;
+    }
+
+
+
+    button{
+        position: relative;
+        &:hover {
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+            background-color: $primary-color;
+        }
+        background-color: $primary-color;
+        color: $secondary-color;
+        padding: 0.8rem 1.5rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 0.1rem;
+        margin-right: 1rem;
+        p{
+            &::before{
+                position: absolute;
+            content: "█";
+            color: $secondary-color;
+            font-size: 20px;
+            transform: rotate(45deg);
+            top: -0.85em;
+            left: -0.75em;
+            }
+        }
+        &::after{
+            position: absolute;
+            content: "█";
+           color: $secondary-color;
+            font-size: 20px;
+            transform: rotate(45deg);
+            bottom: -0.85em;
+            right: -0.75em;
+        }
+        }
+
+    
+    
+}
+}
+}
+
+@media all and (max-width: 1300px) {
+    .profiles{
+        &__profile{
+            flex-direction: column;
+            &__visuel{
+                width: 300px;
+                height: 300px;
+            }
+
+            &__text{
+                button{
+                    margin-bottom: 1rem;
+                }
+            }
+        }
     }
 }
-}
+
+@media all and (max-width: 400px) {
+    .profiles{
+        &__profile{
+        
+            &__visuel{
+                min-width: 200px;
+                min-height: 200px;
+                width: 200px;
+                height: 200px;
+            }
+        }
+    }
 }
