@@ -60,7 +60,8 @@
 
 
     button{
-        position: relative;
+        clip-path: polygon(10% 0%, 100% 0, 100% 70%, 90% 100%, 0 100%, 0% 30%);
+        height: 45px;
         &:hover {
             background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
             background-color: $primary-color;
@@ -72,27 +73,6 @@
         font-weight: 700;
         letter-spacing: 0.1rem;
         margin-right: 1rem;
-        p{
-            position: relative;
-            &::before{
-            position: absolute;
-            content: "█";
-            color: $secondary-color;
-            font-size: 20px;
-            transform: rotate(45deg);
-            top: -1.5rem;
-            left: -2rem;
-            }
-        }
-        &::after{
-            position: absolute;
-            content: "█";
-            color: $secondary-color;
-            font-size: 20px;
-            transform: rotate(45deg);
-            bottom: -0.6rem;
-            right: -0.5rem;
-        }
         }
 
     
