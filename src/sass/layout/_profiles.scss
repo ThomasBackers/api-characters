@@ -74,23 +74,23 @@
         margin-right: 1rem;
         p{
             &::before{
-                position: absolute;
+            position: absolute;
             content: "█";
             color: $secondary-color;
             font-size: 20px;
             transform: rotate(45deg);
-            top: -0.85em;
-            left: -0.75em;
+            top: -0.55em;
+            left: -0.30em;
             }
         }
         &::after{
             position: absolute;
             content: "█";
-           color: $secondary-color;
+            color: $secondary-color;
             font-size: 20px;
             transform: rotate(45deg);
-            bottom: -0.85em;
-            right: -0.75em;
+            bottom: -0.55em;
+            right: -0.30em;
         }
         }
 
