@@ -133,7 +133,9 @@ const main = async () => {
             const name = event.target.parentNode.previousElementSibling.previousElementSibling.innerText
             const longDescription = event.target.parentNode.nextElementSibling.nextElementSibling.innerHTML
             const image = event.target.parentNode.parentNode.previousElementSibling.previousElementSibling.lastElementChild
-            
+
+            image.style.animation = ""
+
             profileContent.querySelector(".profiles__profile__visuel").appendChild(image)
             profileContent.querySelector(".profiles__profile__text__name").innerText = name
             profileContent.querySelector(".profiles__profile__text__short-description").innerText = shortDescription
@@ -141,6 +143,7 @@ const main = async () => {
             profileContent.querySelector(".profiles__profile__char-id").innerText = characterID
 
             homeContent.style.display = "none"
+            editContent.style.display= "none"
             profileContent.style.display = "block"
         })
     })
