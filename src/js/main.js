@@ -250,8 +250,15 @@ saveButton.addEventListener("click", async() => {
     if (!name || !image || !shortDescription || !description) {
     }
     else {
-        await apiPost(apiUrl, objectToPost)
-        location.reload()
+        const charID = document.querySelector(".update__form__char-ID").innerText
+        if (charID.innerText === "") {
+            await apiPost(apiUrl, objectToPost)
+            location.reload()
+        }
+        else {
+            await apiPut(apiUrl, charID, objectToPost)
+            location.reload()
+        }
     }
 })
 
@@ -260,3 +267,23 @@ deleteButton.addEventListener("click", () => {
     //if character.id
     apiDel(apiUrl, id)
 })
+
+// update profile
+const saveButton_ = document.querySelector(".profiles__profile__text__buttons__save")
+saveButton_.addEventListener("click", () => {
+    const image = document.querySelector(".profiles__profile__visuel").querySelector("img")
+    const name = document.querySelector(".profiles__profile__text__name")
+    const shortDescription = document.querySelector(".profiles__profile__text__short-description")
+    const longDescription = document.querySelector(".profiles__profile__text__long-description")
+    const charId = document.querySelector(".profiles__profile__char-id")
+
+    editContent.querySelector(".update__form__figure").appendChild(image)
+    editContent.querySelector("input[name=\"name\"]").value = name.innerText
+    editContent.querySelector("textarea[name=\"short-description\"]").value = shortDescription.innerText
+    editContent.querySelector("textarea[name=\"description\"]").value = longDescription.innerHTML
+    editContent.querySelector(".update__form__char-ID").innerText = charId.innerText
+
+    profileContent.style.display = "none"
+    editContent.style.display = "block"
+})
+//apiDel(apiUrl, "76571c68-ac84-4648-82ed-3f1b76303403")
