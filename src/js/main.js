@@ -190,6 +190,16 @@ addButton.addEventListener("click", () => {
     homeContent.style.display = "none"
     profileContent.style.display = "none"
     editContent.style.display = "block"
+
+    const img = editContent.querySelector(".update__form__figure").querySelector("img")
+    img.remove()
+    editContent.querySelector("input[name=\"name\"]").value = ""
+    editContent.querySelector("textarea[name=\"short-description\"]").value = ""
+    editContent.querySelector("textarea[name=\"description\"]").value = ""
+    editContent.querySelector(".update__form__char-ID").innerText = ""
+
+    profileContent.style.display = "none"
+    editContent.style.display = "block"
 })
 
 document.querySelector(".top-bar__side-menu__list__element__add-btn").addEventListener("click", () => {
